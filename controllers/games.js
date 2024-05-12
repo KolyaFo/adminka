@@ -3,6 +3,12 @@ const {  writeData } = require("../utils/data");
 const sendAllGames = async (req, res) => {
     res.send(req.games);
   };
+  const sendUpdatedGames = (req, res) => {
+    res.send({
+      games: req.games,
+      updated: req.updatedObject
+    });
+  };
 
   const deleteGame = async (req, res) => {
       const id = Number(req.params.id);
@@ -47,6 +53,7 @@ const sendAllGames = async (req, res) => {
 }
 
   module.exports = {
+    sendUpdatedGames,
     sendAllGames,
     deleteGame,
     addGameController
